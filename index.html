@@ -1,3 +1,8 @@
+# index.html (single‑page checkout, mobile‑first)
+
+> Replace nothing — your **Apps Script URL is already baked in** below. Add your Meta Pixel ID if you have one.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +15,7 @@
   <!-- Tailwind (CDN) for rapid testing) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Meta Pixel (optional) — replace YOUR_PIXEL_ID -->
+  <!-- Meta Pixel (optional) — paste your real Pixel ID if you have one -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -105,7 +110,7 @@
 
   <script>
     // ---- CONFIG ----
-    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxwR5N9d4_Kr-M7yw3gCc0htQ6sydwElvaE2-8bdWZn1LT2NWydpvMCUAZVZtdKmZv0/exec'; // replace after you deploy Apps Script (see instructions below)
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxwR5N9d4_Kr-M7yw3gCc0htQ6sydwElvaE2-8bdWZn1LT2NWydpvMCUAZVZtdKmZv0/exec';
 
     const products = [
       {id:'p1', name:'BabyCare Cough Syrup (100ml)', price:499, img:'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop'},
@@ -203,7 +208,6 @@
         createdAt: new Date().toISOString()
       };
 
-      // Frontend validation
       if(order.items.length===0){ $('#status').textContent='Please select at least one product.'; return; }
       if(!detailsValid()){ $('#status').textContent='Please fill your name, valid mobile number and address.'; return; }
 
@@ -211,13 +215,10 @@
       $('#placeOrder').disabled = true;
 
       try{
-        // Use x-www-form-urlencoded to avoid CORS preflight complications with Apps Script
         const body = new URLSearchParams({ data: JSON.stringify(order) });
         const res = await fetch(WEB_APP_URL, { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body });
-        // We won't rely on the response body (Apps Script may not set CORS headers)
         try{ fbq('track','Purchase',{value:order.total, currency:'BDT', contents: order.items.map(i=>({id:i.id, quantity:i.qty}))}); }catch(_){ }
         $('#status').textContent='✅ Order placed! We will call you shortly.';
-        // Reset selections
         Object.keys(state.qtys).forEach(k=>state.qtys[k]=0); syncInputs(); renderSummary();
         document.getElementById('detailsForm').reset();
       } catch(err){
@@ -231,23 +232,66 @@
     document.addEventListener('DOMContentLoaded', ()=>{
       document.getElementById('year').textContent = new Date().getFullYear();
       renderProducts(); renderSummary();
-      // Re-validate button on details change
       ['firstName','phone','address'].forEach(id=> document.getElementById(id).addEventListener('input', updateButtonState));
       document.getElementById('clearBtn').addEventListener('click', ()=>{ Object.keys(state.qtys).forEach(k=>state.qtys[k]=0); syncInputs(); renderSummary(); });
       document.getElementById('placeOrder').addEventListener('click', submitOrder);
     });
   </script>
-
-  <!--
-  ==========================
-  HOW TO SAVE ORDERS (Google Sheets via Apps Script)
-  ==========================
-  1) Create a Google Sheet named "Orders". Keep a sheet/tab named "Orders".
-  2) Extensions → Apps Script → paste the Code.gs from the instructions I sent in chat.
-  3) In that script, put your Sheet ID (from the sheet URL).
-  4) Deploy → "New deployment" → Type: Web app → Execute as: Me → Who has access: Anyone → Deploy.
-  5) Copy the Web app URL and replace WEB_APP_URL above.
-  6) Publish your site and test an order. Check the sheet for new rows.
-  -->
 </body>
 </html>
+```
+
+---
+
+# Apps Script — Code.gs (saves to your Google Sheet)
+
+> This version is pre‑filled with your **Sheet ID** and writes to a tab named **Orders**. Deploy as a **Web app** (Execute as: *Me*, Who has access: *Anyone*). If you already deployed, you can redeploy with this code.
+
+```javascript
+function doPost(e) {
+  try {
+    var data = JSON.parse(e.parameter.data);
+
+    var SHEET_ID = '1ERC9TjTNgNkQPazr-NISkZJhzZdzPBBzjny5RHyEii4'; // your sheet ID
+    var ss = SpreadsheetApp.openById(SHEET_ID);
+    var sheet = ss.getSheetByName('Orders') || ss.insertSheet('Orders');
+
+    // Add header row once
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(['Timestamp','FirstName','Phone','Address','ItemsJSON','TotalBDT']);
+    }
+
+    sheet.appendRow([
+      new Date(),
+      data.firstName || '',
+      data.phone || '',
+      data.address || '',
+      JSON.stringify(data.items || []),
+      data.total || 0
+    ]);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: 'ok' }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: 'error', message: String(err) }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+```
+
+---
+
+## What you still need to do
+
+1. **Apps Script deploy**: In your script, click **Deploy → Manage deployments → New deployment → Web app**
+
+   * *Execute as*: **Me**
+   * *Who has access*: **Anyone**
+   * Copy the **Web app URL** (you already shared it) — the HTML above is using it already.
+2. **GitHub Pages**: Put `index.html` at your repo root → Settings → Pages → Source = `main`/`root` → Save.
+3. **Test**: Open your site, add items, fill details, place order → check your **Orders** sheet for a new row.
+4. **(Optional)** Add your **Meta Pixel ID** in the HTML head to track `PageView/AddToCart/InitiateCheckout/Purchase` events.
+
+If you want, tell me your Pixel ID and the product names/prices/images you want, and I’ll update the file so it’s fully branded.
