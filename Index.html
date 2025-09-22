@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Medicine Store – Fast Relief, Cash on Delivery</title>
+  <meta name="description" content="Affordable OTC healthcare products with fast delivery. Cash on delivery available." />
+  <meta property="og:title" content="Medicine Store – Fast Relief, Cash on Delivery" />
+  <meta property="og:description" content="Affordable OTC healthcare products with fast delivery. Cash on delivery available." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" />
+  <link rel="icon" href="data:," />
+
+  <!-- Tailwind (CDN) for rapid testing; swap for a build step later if you want higher performance -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Meta Pixel Base Code: replace YOUR_PIXEL_ID with your actual ID -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID'); // <-- paste your Pixel ID
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Base Code -->
+
+  <style>
+    /* Safe area for iOS bottom bars */
+    .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+  </style>
+</head>
+<body class="antialiased text-gray-900 bg-white">
+  <!-- Announcement / trust strip -->
+  <div class="w-full bg-emerald-600 text-white text-sm">
+    <div class="mx-auto max-w-6xl px-4 py-2 flex flex-col sm:flex-row items-center justify-center gap-2 sm:justify-between">
+      <p class="font-medium">Authentic OTC products • Cash on Delivery</p>
+      <p class="opacity-90">Delivery: Dhaka & nationwide</p>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="mx-auto max-w-6xl px-4 pt-10 pb-8 md:pt-14 md:pb-12">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+      <div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
+          Gentle relief for your family — fast delivery
+        </h1>
+        <p class="mt-4 text-gray-600 text-base md:text-lg">
+          Safe, effective over‑the‑counter products. Talk to us on WhatsApp to order in seconds.
+        </p>
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <a id="cta-whatsapp" href="https://wa.me/8801XXXXXXXXX?text=Hi%20I%20want%20to%20order" target="_blank" rel="noopener"
+             class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-semibold bg-emerald-600 text-white hover:bg-emerald-700 shadow">
+            Order on WhatsApp
+          </a>
+          <a href="#products" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-semibold border border-gray-300 hover:bg-gray-50">
+            See products
+          </a>
+        </div>
+        <p class="mt-3 text-xs text-gray-500">Most buyers are on mobile — this page is fully responsive.</p>
+      </div>
+      <div class="order-first md:order-none">
+        <img class="w-full h-64 md:h-80 object-cover rounded-2xl shadow"
+             src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1600&auto=format&fit=crop"
+             alt="Medicine and healthcare items" />
+      </div>
+    </div>
+  </header>
+
+  <!-- Benefits -->
+  <section class="mx-auto max-w-6xl px-4 py-8">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="rounded-2xl border p-5">
+        <h3 class="font-semibold">Fast delivery</h3>
+        <p class="text-sm text-gray-600">Same‑day in Dhaka; 1‑3 days nationwide.</p>
+      </div>
+      <div class="rounded-2xl border p-5">
+        <h3 class="font-semibold">Genuine products</h3>
+        <p class="text-sm text-gray-600">Sourced from authorized distributors only.</p>
+      </div>
+      <div class="rounded-2xl border p-5">
+        <h3 class="font-semibold">Cash on delivery</h3>
+        <p class="text-sm text-gray-600">Pay only when you receive the order.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="mx-auto max-w-6xl px-4 py-8">
+    <h2 class="text-2xl font-bold mb-4">Featured products</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Product Card 1 -->
+      <article class="rounded-2xl border p-4 flex flex-col">
+        <img class="w-full h-44 object-cover rounded-xl" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" alt="Cough Syrup" />
+        <div class="mt-3 flex-1">
+          <h3 class="font-semibold">BabyCare Cough Syrup (100ml)</h3>
+          <p class="text-sm text-gray-600">Pediatrician‑trusted, sugar‑free formula.</p>
+          <p class="mt-2 font-bold">৳499</p>
+        </div>
+        <a data-product="BabyCare Cough Syrup" href="https://wa.me/8801XXXXXXXXX?text=Hi%20I%20want%20to%20order%20BabyCare%20Cough%20Syrup%20(100ml)" target="_blank" rel="noopener"
+           class="mt-3 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700">Order on WhatsApp</a>
+      </article>
+      <!-- Product Card 2 -->
+      <article class="rounded-2xl border p-4 flex flex-col">
+        <img class="w-full h-44 object-cover rounded-xl" src="https://images.unsplash.com/photo-1596204976871-9a5100c4e3fb?q=80&w=1200&auto=format&fit=crop" alt="Pain Relief Tablets" />
+        <div class="mt-3 flex-1">
+          <h3 class="font-semibold">PainEase Tablets (10s)</h3>
+          <p class="text-sm text-gray-600">Fast‑acting OTC pain relief.</p>
+          <p class="mt-2 font-bold">৳249</p>
+        </div>
+        <a data-product="PainEase Tablets" href="https://wa.me/8801XXXXXXXXX?text=Hi%20I%20want%20to%20order%20PainEase%20Tablets%20(10s)" target="_blank" rel="noopener"
+           class="mt-3 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700">Order on WhatsApp</a>
+      </article>
+      <!-- Product Card 3 -->
+      <article class="rounded-2xl border p-4 flex flex-col">
+        <img class="w-full h-44 object-cover rounded-xl" src="https://images.unsplash.com/photo-1512303387766-6ef70f502c09?q=80&w=1200&auto=format&fit=crop" alt="Vitamin Syrup" />
+        <div class="mt-3 flex-1">
+          <h3 class="font-semibold">VitaKids Multi Syrup (200ml)</h3>
+          <p class="text-sm text-gray-600">Everyday vitamins & minerals.</p>
+          <p class="mt-2 font-bold">৳699</p>
+        </div>
+        <a data-product="VitaKids Multi Syrup" href="https://wa.me/8801XXXXXXXXX?text=Hi%20I%20want%20to%20order%20VitaKids%20Multi%20Syrup%20(200ml)" target="_blank" rel="noopener"
+           class="mt-3 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700">Order on WhatsApp</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQs / Disclaimer -->
+  <section class="mx-auto max-w-6xl px-4 py-10">
+    <div class="rounded-2xl border p-6">
+      <h2 class="text-xl font-bold mb-3">FAQs</h2>
+      <ul class="space-y-3 text-sm text-gray-700">
+        <li><span class="font-semibold">Is this prescription medicine?</span> No — over‑the‑counter (OTC) only.</li>
+        <li><span class="font-semibold">Payment?</span> Cash on delivery or mobile payment (ask on WhatsApp).</li>
+        <li><span class="font-semibold">Delivery time?</span> Same‑day in Dhaka; 1‑3 days nationwide.</li>
+      </ul>
+      <p class="mt-4 text-xs text-gray-500">Always read the label and follow directions for use. Consult a healthcare professional if symptoms persist. We do not sell prescription drugs.</p>
+    </div>
+  </section>
+
+  <!-- Sticky mobile CTA -->
+  <div class="fixed inset-x-0 bottom-0 safe-bottom bg-white/95 backdrop-blur border-t p-3 md:hidden">
+    <a id="cta-sticky" href="https://wa.me/8801XXXXXXXXX?text=Hi%20I%20want%20to%20order" target="_blank" rel="noopener"
+       class="block w-full text-center rounded-xl px-5 py-3 font-semibold bg-emerald-600 text-white hover:bg-emerald-700 shadow">
+      Order on WhatsApp
+    </a>
+  </div>
+
+  <footer class="mx-auto max-w-6xl px-4 py-12 text-xs text-gray-500">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+      <p>© <span id="year"></span> Medicine Store. All rights reserved.</p>
+      <div class="flex gap-3">
+        <a href="#" class="hover:underline">Return Policy</a>
+        <a href="#" class="hover:underline">Shipping</a>
+        <a href="#" class="hover:underline">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Track Lead when any WhatsApp CTA is clicked
+    function trackLead(e){
+      try { fbq('track', 'Lead', {content_name: e.currentTarget.dataset.product || 'WhatsApp CTA'}); } catch(_) {}
+    }
+    document.getElementById('cta-whatsapp')?.addEventListener('click', trackLead);
+    document.getElementById('cta-sticky')?.addEventListener('click', trackLead);
+    document.querySelectorAll('[data-product]')?.forEach(btn=>btn.addEventListener('click', trackLead));
+  </script>
+</body>
+</html>
