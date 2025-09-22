@@ -1,158 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Medicine Store – Fast Relief, Cash on Delivery</title>
-  <meta name="description" content="Affordable OTC healthcare products with fast delivery. Cash on delivery available." />
-  <meta property="og:title" content="Medicine Store – Fast Relief, Cash on Delivery" />
-  <meta property="og:description" content="Affordable OTC healthcare products with fast delivery. Cash on delivery available." />
+  <title>Baby & Family Care – Cash on Delivery</title>
+  <meta name="description" content="Safe OTC products with nationwide delivery. No advance. Cash on delivery." />
+  <meta property="og:title" content="Baby & Family Care – Cash on Delivery" />
+  <meta property="og:description" content="Nationwide delivery • No advance • Pay after receiving" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" />
   <link rel="icon" href="data:," />
 
-  <!-- Tailwind (CDN) for rapid testing; swap for a build step later if you want higher performance -->
+  <!-- Tailwind CDN for rapid testing -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Meta Pixel Base Code: replace YOUR_PIXEL_ID with your actual ID -->
+  <!-- Meta Pixel (optional for testing). Replace YOUR_PIXEL_ID -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
     n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
     document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID'); // <-- paste your Pixel ID
+    fbq('init', 'YOUR_PIXEL_ID');
     fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
-  <!-- End Meta Pixel Base Code -->
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
 
   <style>
-    /* Safe area for iOS bottom bars */
-    .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+    .line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .safe-bottom{padding-bottom:env(safe-area-inset-bottom)}
   </style>
 </head>
-<body class="antialiased text-gray-900 bg-white">
-  <!-- Announcement / trust strip -->
-  <div class="w-full bg-emerald-600 text-white text-sm">
-    <div class="mx-auto max-w-6xl px-4 py-2 flex flex-col sm:flex-row items-center justify-center gap-2 sm:justify-between">
-      <p class="font-medium">Authentic OTC products • Cash on Delivery</p>
-      <p class="opacity-90">Delivery: Dhaka & nationwide</p>
+<body class="h-full bg-white text-gray-900">
+  <!-- Announcement bar (mirrors COD + delivery promises) -->
+  <div class="bg-emerald-600 text-white text-sm">
+    <div class="mx-auto max-w-7xl px-4 py-2 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+      <p class="font-medium">সারা দেশে হোম ডেলিভারি ফ্রি • অগ্রিম লাগবে না • হাতে পেয়ে চেক করে টাকা দিবেন</p>
+      <p class="opacity-90">ঢাকা ১–৩ দিন • ঢাকার বাইরে ৩–৫ দিন</p>
     </div>
   </div>
 
-  <!-- Hero -->
-  <header class="mx-auto max-w-6xl px-4 pt-10 pb-8 md:pt-14 md:pb-12">
-    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-      <div>
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-          Gentle relief for your family — fast delivery
-        </h1>
-        <p class="mt-4 text-gray-600 text-base md:text-lg">
-          Safe, effective over‑the‑counter products. Talk to us on WhatsApp to order in seconds.
-        </p>
-        <div class="mt-6 flex flex-col sm:flex-row gap-3">
-          <a id="cta-whatsapp" href="https://wa.me/8801XXXXXXXXX?text=Hi%20I%20want%20to%20order" target="_blank" rel="noopener"
-             class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-semibold bg-emerald-600 text-white hover:bg-emerald-700 shadow">
-            Order on WhatsApp
-          </a>
-          <a href="#products" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-semibold border border-gray-300 hover:bg-gray-50">
-            See products
-          </a>
-        </div>
-        <p class="mt-3 text-xs text-gray-500">Most buyers are on mobile — this page is fully responsive.</p>
+  <!-- Header / Nav -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <a href="#" class="text-lg font-extrabold tracking-tight">Baby<span class="text-emerald-600">Care</span></a>
+      <div class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#products" class="hover:text-emerald-600">Products</a>
+        <a href="#why" class="hover:text-emerald-600">Why Us</a>
+        <a href="#faq" class="hover:text-emerald-600">FAQ</a>
+        <a href="#contact" class="hover:text-emerald-600">Contact</a>
       </div>
-      <div class="order-first md:order-none">
-        <img class="w-full h-64 md:h-80 object-cover rounded-2xl shadow"
-             src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1600&auto=format&fit=crop"
-             alt="Medicine and healthcare items" />
-      </div>
+      <button id="openCart" class="relative inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-sm font-semibold hover:bg-gray-50">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25h9.75a1.5 1.5 0 001.463-1.176l1.5-7.5A1.5 1.5 0 0018.75 4.5H5.272M7.5 14.25l-1.5 6M18 14.25l1.5 6M7.5 20.25h12"/></svg>
+        <span>Cart</span>
+        <span id="cartCount" class="absolute -right-1 -top-1 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-emerald-600 px-1.5 text-[10px] font-bold text-white">0</span>
+      </button>
     </div>
   </header>
 
-  <!-- Benefits -->
-  <section class="mx-auto max-w-6xl px-4 py-8">
+  <!-- Hero -->
+  <section class="mx-auto max-w-7xl px-4 pt-8 md:pt-12 pb-6">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Premium baby care & family essentials</h1>
+        <p class="mt-4 text-gray-600">Authentic OTC products at honest prices. Cash on delivery across Bangladesh.</p>
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <a href="#products" class="inline-flex items-center justify-center rounded-xl bg-emerald-600 text-white px-5 py-3 font-semibold hover:bg-emerald-700">Shop products</a>
+          <a href="#why" class="inline-flex items-center justify-center rounded-xl border px-5 py-3 font-semibold hover:bg-gray-50">Why choose us</a>
+        </div>
+        <p class="mt-3 text-xs text-gray-500">*We do not sell prescription drugs. Always read the label and follow directions for use.</p>
+      </div>
+      <div>
+        <img class="w-full h-64 md:h-80 object-cover rounded-2xl shadow" src="https://images.unsplash.com/photo-1542736667-069246bdbc74?q=80&w=1600&auto=format&fit=crop" alt="Baby care items"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why / Trust -->
+  <section id="why" class="mx-auto max-w-7xl px-4 py-6">
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-      <div class="rounded-2xl border p-5">
-        <h3 class="font-semibold">Fast delivery</h3>
-        <p class="text-sm text-gray-600">Same‑day in Dhaka; 1‑3 days nationwide.</p>
-      </div>
-      <div class="rounded-2xl border p-5">
-        <h3 class="font-semibold">Genuine products</h3>
-        <p class="text-sm text-gray-600">Sourced from authorized distributors only.</p>
-      </div>
-      <div class="rounded-2xl border p-5">
-        <h3 class="font-semibold">Cash on delivery</h3>
-        <p class="text-sm text-gray-600">Pay only when you receive the order.</p>
-      </div>
+      <div class="rounded-2xl border p-5"><h3 class="font-semibold">Genuine products</h3><p class="text-sm text-gray-600">From authorized distributors only</p></div>
+      <div class="rounded-2xl border p-5"><h3 class="font-semibold">Fast delivery</h3><p class="text-sm text-gray-600">Dhaka 1–3 days, nationwide 3–5 days</p></div>
+      <div class="rounded-2xl border p-5"><h3 class="font-semibold">Cash on delivery</h3><p class="text-sm text-gray-600">No advance — pay after receiving</p></div>
     </div>
   </section>
 
-  <!-- Products -->
-  <section id="products" class="mx-auto max-w-6xl px-4 py-8">
-    <h2 class="text-2xl font-bold mb-4">Featured products</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Product Card 1 -->
-      <article class="rounded-2xl border p-4 flex flex-col">
-        <img class="w-full h-44 object-cover rounded-xl" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" alt="Cough Syrup" />
-        <div class="mt-3 flex-1">
-          <h3 class="font-semibold">BabyCare Cough Syrup (100ml)</h3>
-          <p class="text-sm text-gray-600">Pediatrician‑trusted, sugar‑free formula.</p>
-          <p class="mt-2 font-bold">৳499</p>
-        </div>
-        <a data-product="BabyCare Cough Syrup" href="https://wa.me/8801XXXXXXXXX?text=Hi%20I%20want%20to%20order%20BabyCare%20Cough%20Syrup%20(100ml)" target="_blank" rel="noopener"
-           class="mt-3 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700">Order on WhatsApp</a>
-      </article>
-      <!-- Product Card 2 -->
-      <article class="rounded-2xl border p-4 flex flex-col">
-        <img class="w-full h-44 object-cover rounded-xl" src="https://images.unsplash.com/photo-1596204976871-9a5100c4e3fb?q=80&w=1200&auto=format&fit=crop" alt="Pain Relief Tablets" />
-        <div class="mt-3 flex-1">
-          <h3 class="font-semibold">PainEase Tablets (10s)</h3>
-          <p class="text-sm text-gray-600">Fast‑acting OTC pain relief.</p>
-          <p class="mt-2 font-bold">৳249</p>
-        </div>
-        <a data-product="PainEase Tablets" href="https://wa.me/8801XXXXXXXXX?text=Hi%20I%20want%20to%20order%20PainEase%20Tablets%20(10s)" target="_blank" rel="noopener"
-           class="mt-3 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700">Order on WhatsApp</a>
-      </article>
-      <!-- Product Card 3 -->
-      <article class="rounded-2xl border p-4 flex flex-col">
-        <img class="w-full h-44 object-cover rounded-xl" src="https://images.unsplash.com/photo-1512303387766-6ef70f502c09?q=80&w=1200&auto=format&fit=crop" alt="Vitamin Syrup" />
-        <div class="mt-3 flex-1">
-          <h3 class="font-semibold">VitaKids Multi Syrup (200ml)</h3>
-          <p class="text-sm text-gray-600">Everyday vitamins & minerals.</p>
-          <p class="mt-2 font-bold">৳699</p>
-        </div>
-        <a data-product="VitaKids Multi Syrup" href="https://wa.me/8801XXXXXXXXX?text=Hi%20I%20want%20to%20order%20VitaKids%20Multi%20Syrup%20(200ml)" target="_blank" rel="noopener"
-           class="mt-3 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700">Order on WhatsApp</a>
-      </article>
+  <!-- Products Grid -->
+  <section id="products" class="mx-auto max-w-7xl px-4 py-8">
+    <div class="flex items-end justify-between mb-4">
+      <h2 class="text-2xl font-bold">Featured products</h2>
+      <button id="openCart2" class="text-sm text-emerald-700 hover:underline">View cart</button>
     </div>
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </section>
 
-  <!-- FAQs / Disclaimer -->
-  <section class="mx-auto max-w-6xl px-4 py-10">
+  <!-- FAQ -->
+  <section id="faq" class="mx-auto max-w-7xl px-4 py-10">
     <div class="rounded-2xl border p-6">
       <h2 class="text-xl font-bold mb-3">FAQs</h2>
-      <ul class="space-y-3 text-sm text-gray-700">
-        <li><span class="font-semibold">Is this prescription medicine?</span> No — over‑the‑counter (OTC) only.</li>
-        <li><span class="font-semibold">Payment?</span> Cash on delivery or mobile payment (ask on WhatsApp).</li>
-        <li><span class="font-semibold">Delivery time?</span> Same‑day in Dhaka; 1‑3 days nationwide.</li>
-      </ul>
-      <p class="mt-4 text-xs text-gray-500">Always read the label and follow directions for use. Consult a healthcare professional if symptoms persist. We do not sell prescription drugs.</p>
+      <div class="space-y-3 text-sm text-gray-700">
+        <p><span class="font-semibold">Is this prescription medicine?</span> No — we sell only OTC (non‑prescription) items.</p>
+        <p><span class="font-semibold">Payment?</span> Cash on delivery or mobile payment (on delivery).</p>
+        <p><span class="font-semibold">Returns?</span> If sealed item is damaged/incorrect, please contact us within 48 hours.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Sticky mobile CTA -->
-  <div class="fixed inset-x-0 bottom-0 safe-bottom bg-white/95 backdrop-blur border-t p-3 md:hidden">
-    <a id="cta-sticky" href="https://wa.me/8801XXXXXXXXX?text=Hi%20I%20want%20to%20order" target="_blank" rel="noopener"
-       class="block w-full text-center rounded-xl px-5 py-3 font-semibold bg-emerald-600 text-white hover:bg-emerald-700 shadow">
-      Order on WhatsApp
-    </a>
-  </div>
+  <!-- Contact / Footer -->
+  <section id="contact" class="mx-auto max-w-7xl px-4 py-6">
+    <div class="rounded-2xl border p-6">
+      <h2 class="text-xl font-bold mb-3">Contact</h2>
+      <p class="text-sm text-gray-700">Hotline: 01XXXXXXXXX • Email: hello@example.com</p>
+    </div>
+  </section>
 
-  <footer class="mx-auto max-w-6xl px-4 py-12 text-xs text-gray-500">
+  <footer class="mx-auto max-w-7xl px-4 py-12 text-xs text-gray-500">
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-      <p>© <span id="year"></span> Medicine Store. All rights reserved.</p>
+      <p>© <span id="year"></span> BabyCare. All rights reserved.</p>
       <div class="flex gap-3">
         <a href="#" class="hover:underline">Return Policy</a>
         <a href="#" class="hover:underline">Shipping</a>
@@ -161,17 +124,146 @@
     </div>
   </footer>
 
-  <script>
-    // Update year
-    document.getElementById('year').textContent = new Date().getFullYear();
+  <!-- Cart Drawer -->
+  <div id="cartDrawer" class="fixed inset-y-0 right-0 w-full sm:w-[420px] bg-white shadow-2xl border-l translate-x-full transition-transform duration-300 z-50 flex flex-col">
+    <div class="px-4 py-3 border-b flex items-center justify-between">
+      <h3 class="font-bold">Your cart</h3>
+      <button id="closeCart" class="rounded-lg border px-2 py-1 text-sm">Close</button>
+    </div>
+    <div id="cartItems" class="flex-1 overflow-y-auto p-4"></div>
+    <div class="border-t p-4 space-y-3">
+      <div class="flex items-center justify-between text-sm"><span>Subtotal</span><span id="cartSubtotal" class="font-semibold">৳0</span></div>
+      <button id="checkoutBtn" class="w-full rounded-xl bg-emerald-600 text-white px-5 py-3 font-semibold hover:bg-emerald-700">Checkout</button>
+    </div>
+  </div>
 
-    // Track Lead when any WhatsApp CTA is clicked
-    function trackLead(e){
-      try { fbq('track', 'Lead', {content_name: e.currentTarget.dataset.product || 'WhatsApp CTA'}); } catch(_) {}
+  <!-- Checkout Modal -->
+  <div id="checkoutModal" class="fixed inset-0 hidden z-50">
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="absolute inset-x-0 bottom-0 sm:inset-0 sm:m-auto sm:h-fit sm:max-w-lg bg-white rounded-t-2xl sm:rounded-2xl shadow-xl p-6 safe-bottom">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-bold">Delivery details</h3>
+        <button id="closeCheckout" class="rounded-lg border px-2 py-1 text-sm">Close</button>
+      </div>
+      <form id="checkoutForm" class="space-y-3">
+        <div>
+          <label class="block text-sm font-medium">Full name</label>
+          <input required name="name" class="mt-1 w-full rounded-xl border px-3 py-2" placeholder="Your name" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Phone number</label>
+          <input required name="phone" class="mt-1 w-full rounded-xl border px-3 py-2" placeholder="01XXXXXXXXX" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Address</label>
+          <textarea required name="address" class="mt-1 w-full rounded-xl border px-3 py-2" placeholder="House, road, area, district" rows="3"></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Notes (optional)</label>
+          <input name="notes" class="mt-1 w-full rounded-xl border px-3 py-2" placeholder="Any instruction" />
+        </div>
+        <button class="w-full rounded-xl bg-emerald-600 text-white px-5 py-3 font-semibold hover:bg-emerald-700">Place order (COD)</button>
+        <p class="text-xs text-gray-500">By placing an order you agree to our policies. Cash on delivery — pay after receiving.</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const BDT = new Intl.NumberFormat('bn-BD');
+    const $ = (sel)=>document.querySelector(sel);
+    const $$ = (sel)=>document.querySelectorAll(sel);
+    const state = {
+      products: [
+        {id:'p1', name:'BabyCare Cough Syrup (100ml)', price:499, img:'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop'},
+        {id:'p2', name:'PainEase Tablets (10s)', price:249, img:'https://images.unsplash.com/photo-1596204976871-9a5100c4e3fb?q=80&w=1200&auto=format&fit=crop'},
+        {id:'p3', name:'VitaKids Multi Syrup (200ml)', price:699, img:'https://images.unsplash.com/photo-1512303387766-6ef70f502c09?q=80&w=1200&auto=format&fit=crop'},
+      ],
+      cart: JSON.parse(localStorage.getItem('cart')||'[]')
+    };
+
+    function saveCart(){ localStorage.setItem('cart', JSON.stringify(state.cart)); }
+
+    function renderProducts(){
+      const grid = $('#productGrid');
+      grid.innerHTML = state.products.map(p=>`
+        <article class="rounded-2xl border p-4 flex flex-col">
+          <img class="w-full h-44 object-cover rounded-xl" src="${p.img}" alt="${p.name}"/>
+          <div class="mt-3 flex-1">
+            <h3 class="font-semibold line-clamp-2">${p.name}</h3>
+            <p class="mt-2 font-bold">৳${p.price}</p>
+          </div>
+          <div class="mt-3 flex gap-2">
+            <button data-id="${p.id}" class="addToCart inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700 flex-1">Add to cart</button>
+          </div>
+        </article>`).join('');
+      $$('.addToCart').forEach(btn=>btn.addEventListener('click', e=>{
+        const id=e.currentTarget.dataset.id; const prod=state.products.find(x=>x.id===id);
+        const item=state.cart.find(x=>x.id===id); if(item){ item.qty++; } else { state.cart.push({id, qty:1}); }
+        saveCart(); updateCartBadge(); renderCart();
+        try{ fbq('track','AddToCart',{content_ids:[id], value:prod.price, currency:'BDT'}); }catch(_){ }
+      }));
     }
-    document.getElementById('cta-whatsapp')?.addEventListener('click', trackLead);
-    document.getElementById('cta-sticky')?.addEventListener('click', trackLead);
-    document.querySelectorAll('[data-product]')?.forEach(btn=>btn.addEventListener('click', trackLead));
+
+    function cartLines(){
+      return state.cart.map(ci=>{ const p=state.products.find(x=>x.id===ci.id); return {...p, qty:ci.qty, line:p.price*ci.qty}; });
+    }
+
+    function cartTotal(){ return cartLines().reduce((s,x)=>s+x.line,0); }
+
+    function updateCartBadge(){ $('#cartCount').textContent = state.cart.reduce((s,x)=>s+x.qty,0); }
+
+    function renderCart(){
+      const wrap = $('#cartItems');
+      if(!state.cart.length){ wrap.innerHTML = '<p class="text-sm text-gray-600">Your cart is empty.</p>'; $('#cartSubtotal').textContent='৳0'; return; }
+      wrap.innerHTML = cartLines().map(l=>`
+        <div class="flex gap-3 py-3 border-b">
+          <img src="${l.img}" alt="${l.name}" class="w-16 h-16 rounded object-cover"/>
+          <div class="flex-1">
+            <p class="font-medium">${l.name}</p>
+            <div class="mt-1 flex items-center gap-2 text-sm">
+              <button data-id="${l.id}" class="dec rounded border px-2">-</button>
+              <span>${l.qty}</span>
+              <button data-id="${l.id}" class="inc rounded border px-2">+</button>
+              <span class="ml-auto font-semibold">৳${l.line}</span>
+            </div>
+          </div>
+          <button data-id="${l.id}" class="rm text-gray-500 hover:text-red-600">✕</button>
+        </div>`).join('');
+      $('#cartSubtotal').textContent = '৳'+cartTotal();
+      $$('.inc').forEach(b=>b.addEventListener('click',e=>{ const it=state.cart.find(x=>x.id===e.currentTarget.dataset.id); it.qty++; saveCart(); updateCartBadge(); renderCart(); }));
+      $$('.dec').forEach(b=>b.addEventListener('click',e=>{ const it=state.cart.find(x=>x.id===e.currentTarget.dataset.id); it.qty=Math.max(1,it.qty-1); saveCart(); updateCartBadge(); renderCart(); }));
+      $$('.rm').forEach(b=>b.addEventListener('click',e=>{ const id=e.currentTarget.dataset.id; state.cart=state.cart.filter(x=>x.id!==id); saveCart(); updateCartBadge(); renderCart(); }));
+    }
+
+    function openCart(){ $('#cartDrawer').classList.remove('translate-x-full'); }
+    function closeCart(){ $('#cartDrawer').classList.add('translate-x-full'); }
+
+    // Checkout
+    function openCheckout(){ $('#checkoutModal').classList.remove('hidden'); try{ fbq('track','InitiateCheckout',{value:cartTotal(), currency:'BDT'});}catch(_){}}
+    function closeCheckout(){ $('#checkoutModal').classList.add('hidden'); }
+
+    document.addEventListener('DOMContentLoaded',()=>{
+      $('#year').textContent = new Date().getFullYear();
+      renderProducts(); updateCartBadge(); renderCart();
+      $('#openCart').addEventListener('click', openCart);
+      $('#openCart2').addEventListener('click', openCart);
+      $('#closeCart').addEventListener('click', closeCart);
+      $('#checkoutBtn').addEventListener('click', openCheckout);
+      $('#closeCheckout').addEventListener('click', closeCheckout);
+
+      $('#checkoutForm').addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const order = {
+          name: form.get('name'), phone: form.get('phone'), address: form.get('address'), notes: form.get('notes'),
+          items: cartLines(), total: cartTotal(), createdAt: new Date().toISOString()
+        };
+        console.log('ORDER', order); // Replace this with a fetch() to your backend/Google Sheet/Zapier webhook
+        try{ fbq('track','Purchase',{value:order.total, currency:'BDT', contents: order.items.map(i=>({id:i.id, quantity:i.qty}))}); }catch(_){ }
+        state.cart = []; saveCart(); updateCartBadge(); renderCart(); closeCheckout(); closeCart();
+        alert('Thanks! Your COD order has been placed. We will call you shortly.');
+      });
+    });
   </script>
 </body>
 </html>
