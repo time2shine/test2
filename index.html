@@ -4,15 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BabyCare — Fast Delivery • Cash on Delivery</title>
-  <meta name="description" content="Premium baby & family care products. Single‑page checkout. Nationwide delivery, cash on delivery." />
+  <meta name="description" content="Premium baby & family care products. Single-page checkout. Nationwide delivery, cash on delivery." />
   <link rel="icon" href="data:," />
 
   <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Hero background helper (soft radial glow like Tailwind Toolbox demo) -->
+  <!-- Global fix: keep room for the sticky header when jumping to #anchors -->
   <style>
-    .radial-mask{ background: radial-gradient(1000px 600px at 10% -20%, rgba(16,185,129,.35), rgba(16,185,129,0)), radial-gradient(900px 500px at 110% 10%, rgba(59,130,246,.25), rgba(59,130,246,0)); }
+    /* Smooth scrolling + offset for sticky header so anchors aren't hidden */
+    html {
+      scroll-padding-top: 76px;   /* approximate mobile header height */
+      scroll-behavior: smooth;    /* optional, feels nicer */
+    }
+    @media (min-width: 768px) {
+      html { scroll-padding-top: 96px; } /* desktop/tablet header height */
+    }
+
+    /* Hero background helper (soft radial glow like Tailwind Toolbox demo) */
+    .radial-mask{
+      background:
+        radial-gradient(1000px 600px at 10% -20%, rgba(16,185,129,.35), rgba(16,185,129,0)),
+        radial-gradient(900px 500px at 110% 10%, rgba(59,130,246,.25), rgba(59,130,246,0));
+    }
     .line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   </style>
 
@@ -52,7 +66,7 @@
   </header>
 
   <!-- Hero (Toolbox vibe: gradient + soft glow + big heading) -->
-  <section class="border-b bg-gradient-to-br from-emerald-50 via-white to-blue-50">
+  <section class="border-b bg-gradient-to-br from-emerald-50 via-white to-blue-50" id="home">
     <div class="radial-mask">
       <div class="mx-auto max-w-7xl px-4 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
         <div>
@@ -88,7 +102,7 @@
     </div>
   </section>
 
-  <!-- ORDER SECTION (single‑page checkout, Toolbox styling) -->
+  <!-- ORDER SECTION (single-page checkout, Toolbox styling) -->
   <section id="order" class="mx-auto max-w-7xl px-4 py-12 md:py-16">
     <div class="mb-6 md:mb-8">
       <h2 class="text-2xl md:text-3xl font-extrabold">Place your order</h2>
@@ -146,7 +160,7 @@
     <div class="rounded-2xl border p-6">
       <h2 class="text-xl font-bold mb-3">FAQs</h2>
       <div class="space-y-3 text-sm text-gray-700">
-        <p><span class="font-semibold">Is this prescription medicine?</span> No — we sell only OTC (non‑prescription) items.</p>
+        <p><span class="font-semibold">Is this prescription medicine?</span> No — we sell only OTC (non-prescription) items.</p>
         <p><span class="font-semibold">Payment?</span> Cash on delivery or mobile payment on delivery.</p>
         <p><span class="font-semibold">Returns?</span> If a sealed item is damaged/incorrect, contact us within 48 hours.</p>
       </div>
@@ -291,8 +305,6 @@
 
     document.addEventListener('DOMContentLoaded', ()=>{
       // Footer year
-      const y=document.createElement('span'); y.id='year';
-      document.querySelector('footer p').innerHTML = `© <span id="year"></span> BabyCare. All rights reserved.`;
       document.getElementById('year').textContent = new Date().getFullYear();
 
       renderProducts(); renderSummary();
