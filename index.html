@@ -290,7 +290,11 @@
     }
 
     document.addEventListener('DOMContentLoaded', ()=>{
+      // Footer year
+      const y=document.createElement('span'); y.id='year';
+      document.querySelector('footer p').innerHTML = `© <span id="year"></span> BabyCare. All rights reserved.`;
       document.getElementById('year').textContent = new Date().getFullYear();
+
       renderProducts(); renderSummary();
       ['firstName','phone','address'].forEach(id=> document.getElementById(id).addEventListener('input', updateButtonState));
       document.getElementById('placeOrder').addEventListener('click', submitOrder);
